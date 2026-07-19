@@ -1,0 +1,721 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600&display=swap');
+
+:root{
+    --gold:#C69B3D;
+    --maroon:#800020;
+    --black:#111;
+    --cream:#F5F2EE;
+    --white:#fff;
+}
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Manrope',sans-serif;
+    background:var(--cream);
+    color:var(--black);
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+/* Containers */
+.container{
+    width:100%;
+    max-width:450px;
+    margin:auto;
+}
+
+.page-container{
+    width:95%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.container,
+.page-container{
+    background: var(--white);
+    border:1px solid var(--gold);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    position:relative;
+}
+
+
+/*Logo */
+.logo{
+    width:100px;
+    height:100px;
+    margin:0 auto 25px;
+    border-radius:50%;
+    background:var(--black);
+    color:var(--gold);
+    border:3px solid var(--gold);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    font-weight:bold;
+    position:relative;
+    overflow:hidden;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.20),
+        0 0 0 6px rgba(198,155,61,.15);
+    transition:.3s ease;
+}
+
+/* Decorative outer ring */
+.logo::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border:2px dashed rgba(198,155,61,.45);
+    border-radius:50%;
+    animation:rotate 12s linear infinite;
+}
+
+/* Gold shine */
+.logo::after{
+    content:"";
+    position:absolute;
+    width:150%;
+    height:40%;
+    background:rgba(255,255,255,.18);
+    transform:rotate(-35deg);
+    top:-60%;
+    left:-120%;
+    transition:.3s ease;
+}
+
+.logo:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25),
+        0 0 20px rgba(198,155,61,.35);
+}
+
+.logo:hover::after{
+    top:120%;
+    left:120%;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* BRAND TITLE */
+.brand-title{
+    font-family: "Great Vibes", cursive;
+    font-size: 72px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 3px;
+
+    /* Gold Gradient */
+    background: linear-gradient(
+        90deg,
+        #8B6B1F,
+        #C9A227,
+        #F5E6A3,
+        #D4AF37,
+        #8B6B1F
+    );
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow:
+        0 2px 8px rgba(212,175,55,.25);
+
+    animation: goldShine 6s linear infinite,
+               floatTitle 3s ease-in-out infinite;
+}
+
+/* Moving gold shine */
+@keyframes goldShine{
+    0%{
+        background-position:0% center;
+    }
+    100%{
+        background-position:300% center;
+    }
+}
+
+/* Gentle floating effect */
+@keyframes floatTitle{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-4px);
+    }
+}
+
+
+/* Headings */
+h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #1E1E1E;
+    text-align: center;
+    letter-spacing: 3px;
+    text-shadow: 0 3px 12px rgba(183,110,121,.18);
+    margin-bottom: 10px;
+}
+
+h2{
+    text-align:center;
+    color:var(--maroon);
+    font-size:16px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:35px;
+    position:relative;
+}
+
+h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:3px;
+    background:var(--gold);
+    margin:12px auto 0;
+    border-radius:5px;
+}
+
+h3{
+    text-align:center;
+    font-size:18px;
+    font-weight:500;
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* LOGIN FORM */
+label{
+    display:block;
+    margin:15px 0 8px;
+    font-weight:600;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s ease;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 8px rgba(198,155,61,.3);
+}
+
+/* Buttons */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:25px;
+    border:none;
+    border-radius:10px;
+    background:var(--maroon);
+    color:var(--white);
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+button:hover{
+    background:var(--black);
+    transform:translateY(-2px);
+}
+
+/* Links */
+a{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:var(--maroon);
+    font-weight:600;
+}
+
+a:hover{
+    color:var(--gold);
+}
+
+/* Dashboard */
+.dashboard{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:40px;
+}
+
+.dashboard button{
+    width:280px;
+    height:180px;
+    margin:0;
+    background:var(--white);
+    border:2px solid var(--gold);
+    color:var(--black);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.dashboard button i{
+    font-size:48px;
+    color:var(--maroon);
+}
+
+.dashboard button span{
+    font-size:18px;
+    font-weight:600;
+}
+
+.dashboard button:hover{
+    background:var(--black);
+}
+
+.dashboard button:hover i,
+.dashboard button:hover span{
+    color:var(--gold);
+}
+
+/* Dashboard Cards */
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.card:hover{
+    background:var(--black);
+    color:var(--white);
+    transform:translateY(-8px);
+}
+
+.card-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:50%;
+    background:var(--maroon);
+    color:var(--white);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.card:hover .card-icon{
+    background:var(--gold);
+    color:var(--black);
+}
+
+
+/* USER/STOCKS TABLE */
+/* Search */
+.search-box{
+    display:flex;
+    gap:15px;
+    margin:30px 0;
+}
+
+.search-box input{
+    flex:1;
+}
+
+.search-btn{
+    width:180px;
+    margin:0;
+}
+
+
+
+.table-container{
+    margin-top:30px;
+    background:var(--white);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.user-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:15px;
+}
+
+.user-table thead{
+    background:var(--maroon);
+    color:var(--white);
+}
+
+.user-table th{
+    padding:18px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.user-table td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #ececec;
+}
+
+.user-table tbody tr:nth-child(even){
+    background:#faf7f5;
+}
+
+.user-table tbody tr{
+    transition:.25s ease;
+}
+
+.user-table tbody tr:hover{
+    background:#f6e8eb;
+    transform:scale(1.005);
+}
+
+.user-table td:first-child{
+    font-weight:bold;
+    color:#B76E79;
+}
+
+.user-table td:nth-child(2){
+    font-weight:600;
+}
+
+/* Role Badges for Users */
+.role-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.role-badge.admin{
+    background:#582f0e;
+    color:white;
+}
+
+.role-badge.user{
+    background:#edc4b3;
+    color:black;
+}
+
+
+
+/* Status Badges for stocks */
+
+.status{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status.available{
+    background:#d4f5dc;
+    color:#0b7d37;
+}
+
+.status.low{
+    background:#fff4cf;
+    color:#b77b00;
+}
+
+.status.out{
+    background:#ffe0e0;
+    color:#c62828;
+}
+
+/* Action Buttons */
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.action-btn{
+    border:none;
+    border-radius:8px;
+    padding:8px 14px;
+    cursor:pointer;
+    transition:.25s ease;
+    font-weight:600;
+}
+
+.edit-btn{
+    background:#1E1E1E;
+    color:white;
+}
+
+.edit-btn:hover{
+    background:#B76E79;
+}
+
+.delete-btn{
+    background:#d9534f;
+    color:white;
+}
+
+.delete-btn:hover{
+    background:#b52b27;
+}
+
+
+/* Logout */
+.logout-container{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.logout-btn{
+    width:250px;
+}
+
+
+/* Back Link */
+.back-link{
+    margin-top:35px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.container,
+.page-container{
+    width:100%;
+    padding:25px;
+}
+
+h1{
+    font-size:32px;
+}
+
+.dashboard{
+    flex-direction:column;
+}
+
+.card-grid{
+    grid-template-columns:1fr;
+}
+
+.search-box{
+    flex-direction:column;
+}
+
+.search-btn,
+.add-btn,
+.logout-btn{
+    width:100%;
+}
+
+.actions{
+    flex-direction:column;
+}
+
+.user-table{
+    display:block;
+    overflow-x:auto;
+}
+}
+
+.reports-grid{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:50px;
+}
+
+.reports-grid button{
+    width:340px;
+    height:250px;
+    background:var(--maroon);
+    border:none;
+    border-radius:20px;
+    color:var(--white);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    cursor:pointer;
+    transition:.35s ease;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.reports-grid button:hover{
+    transform:translateY(-10px);
+    background:var(--black);
+}
+
+.reports-grid i{
+    font-size:60px;
+    margin-bottom:20px;
+    color:var(--gold);
+}
+
+.reports-grid h3{
+    font-size:24px;
+    margin-bottom:12px;
+    color:var(--white);
+}
+
+.reports-grid p{
+    font-size:14px;
+    color:#ddd;
+    line-height:1.6;
+    text-align:center;
+}
+
+/* From Uiverse.io by WhiteNervosa */ 
+.customCheckBoxHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+  margin: 50px auto;   /* Centers horizontally */
+}
+
+.customCheckBox{
+    width:100%;
+    overflow:hidden;
+    cursor:pointer;
+    user-select:none;
+    padding:2px 8px;
+    background:var(--maroon);
+    border-radius:1px;
+    color:rgba(255,255,255,.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:32px;
+    min-width:55px;
+    transition:300ms cubic-bezier(.25,.8,.25,1);
+    transition-property:color,background-color,box-shadow;
+    box-shadow:
+        rgba(0,0,0,.15) 0 2px 1px inset,
+        rgba(255,255,255,.17) 0 1px 1px;
+}
+.customCheckBoxWrapper {
+    flex: 1;
+}
+
+
+.customCheckBox:hover {
+  background-color: #2c2c2c;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+}
+
+.customCheckBox .inner {
+  font-size: 18px;
+  font-weight: 900;
+  pointer-events: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 300ms;
+  transition-property: transform;
+  transform: translateY(0px);
+}
+
+.customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+.customCheckBoxWrapper:first-of-type .customCheckBox {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+
+  /* Divider */
+  border-right: 1px solid rgb(121, 47, 47);
+}
+
+.customCheckBoxWrapper:last-of-type .customCheckBox {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.customCheckBoxInput {
+  display: none;
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+  background-color: var(--black);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.customCheckBoxWrapper .customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+/* Report Content of audit log and inventory report*/
+.report-content{
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.error{
+    background:#ffe5e5;
+    border:1px solid #ffb3b3;
+    color:#800020;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:600;
+}
